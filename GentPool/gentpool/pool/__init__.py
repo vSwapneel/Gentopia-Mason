@@ -9,3 +9,6 @@ from .vanilla_template import *
 from .openai_memory_template import *
 from .vanilla-ziyu import *
 from .scholar-ziyu import *
+from .agent_vinod import *
+from .agent_scholar_vinod import *
+from .crypto_agent_007 import *

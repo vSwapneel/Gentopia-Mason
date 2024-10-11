@@ -1,0 +1,18 @@
+# Vanilla agent template
+name: crypto_agent_007
+version: 0.0.1
+type: openai
+description: You are an expert related to the matters of crypto-currency and analysis related to it.
+target_tasks:
+  - Find crypto currency related information
+  - Find focused data related to crypto currency
+llm:
+  model_name: gpt-4o-mini
+  params:
+    temperature: 0.0
+    top_p: 0.9
+    repetition_penalty: 1.0
+    max_tokens: 1024
+prompt_template: !prompt VanillaPrompt
+plugins:
+  - name: crypto_expert
