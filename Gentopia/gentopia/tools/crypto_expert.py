@@ -38,8 +38,6 @@ class CryptoExpert(BaseTool):
                                                             # It shouldn't matter as it is a free account, I will eventually get rid of it. 
     base_url: str = "https://api.livecoinwatch.com"
 
-    print("Inside crypto expert class")
-
     def _make_request(self, endpoint: str, payload: dict) -> dict:
         url = f"{self.base_url}/{endpoint}"
         headers = {
@@ -62,33 +60,27 @@ class CryptoExpert(BaseTool):
         if action == "data" and symbol:
             payload = {"currency": currency, "code": symbol, "meta": True}
             response = self._make_request("coins/single", payload)
-            #return f"Crypto {symbol}: \nPrice: {response.get('rate')}\nMarket Cap: {response.get('cap')}\n" if "error" not in response else response["error"]
 
         elif action == "history" and symbol and start and end:
             payload = {"currency": currency, "code": symbol, "start": start, "end": end}
             response = self._make_request("coins/single/history", payload)
-            #return response
 
         elif action == "list":
             payload = {"currency": currency, "sort": sort, "order": order, "offset": offset, "limit": limit, "meta": meta}
             response = self._make_request("coins/list", payload)
-            #return response
 
         elif action == "map" and symbols:
             symbols_list = symbols.split(",")
             payload = {"currency": currency, "codes": symbols_list, "sort": sort, "order": order, "offset": offset, "limit": limit, "meta": meta}
             response = self._make_request("coins/map", payload)
-            #return response
 
         elif action == "exchange" and exchange_id:
             payload = {"currency":currency,"id": exchange_id, "meta": meta}
             response = self._make_request("exchanges/single", payload)
-            #return response
 
         elif action == "list_exchanges":
             payload = {"currency":currency, "sort": "volume", "order": order, "offset": offset, "limit": limit, "meta": meta}
             response = self._make_request("exchanges/list", payload)
-            #return response
 
         else:
             return "Invalid action or missing parameters."

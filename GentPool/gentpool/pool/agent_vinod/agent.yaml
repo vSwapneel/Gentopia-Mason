@@ -1,4 +1,6 @@
 # Vanilla agent template
+# I am not Vinod, this agent is named after a somewhat popular movie called Agent Vinod.
+# I didn't really like the movie, but the name has a nice ring to it.
 name: agent_vinod
 version: 0.0.1
 type: vanilla

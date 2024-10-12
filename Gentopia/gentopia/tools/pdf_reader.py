@@ -10,10 +10,9 @@ class PdfReaderArgs(BaseModel):
 
 
 class PdfReader(BaseTool):
-    """Tool that adds the capability to query the Google search API."""
 
     name = "pdf_reader"
-    description = ("A pdf reader reading the pdf."
+    description = ("PDF reader for reading PDFs."
                    "Input: pdf url")
 
     args_schema: Optional[Type[BaseModel]] = PdfReaderArgs
